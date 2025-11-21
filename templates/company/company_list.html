@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Компании{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Список компаний</h1>
+    <div class="row">
+        {% for company in companies %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ company.name }}</h5>
+                    <p class="card-text">{{ company.description }}</p>
+                    <p class="card-text"><strong>Адрес:</strong> {{ company.address }}</p>
+                    {% if company.website %}
+                    <p class="card-text"><strong>Сайт:</strong> <a href="{{ company.website }}" target="_blank">{{ company.website }}</a></p>
+                    {% endif %}
+                    {% if company.phone %}
+                    <p class="card-text"><strong>Телефон:</strong> {{ company.phone }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if not companies %}
+    <p>Компаний пока нет.</p>
+    {% endif %}
+</div>
+{% endblock %}
