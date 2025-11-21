@@ -1,0 +1,38 @@
+# Django
+*.pyc
+*/__pycache__/
+db.sqlite3
+migrations/
+*.log
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Type checker configs (локально, не на сервере)
+pyrightconfig.json
+basedpyrightconfig.json
+
+# Local requirements
+requirements_loc.txt
+
+# Django settings (локально)
+config/settings.py
+config/settings_prod.py
+
+# Local tooling
+.code/
+cmd.txt
+
+# Static files (если собираетесь их игнорировать)
+/staticfiles/
+/media/

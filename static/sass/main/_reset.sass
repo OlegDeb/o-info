@@ -1,0 +1,53 @@
+/* Enhanced Modern Reset */
+*, *::before, *::after
+  box-sizing: border-box
+
+*
+  margin: 0
+  padding: 0
+
+html
+  scroll-behavior: smooth
+  font-size: 16px
+
+body
+  line-height: 1.6
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-rendering: optimizeSpeed
+  min-height: 100vh
+
+/* Improved media defaults */
+img, picture, video, canvas, svg
+  display: block
+  max-width: 100%
+  height: auto
+
+/* Forms consistency */
+input, button, textarea, select
+  font: inherit
+  color: inherit
+
+button
+  cursor: pointer
+  background: none
+  border: none
+
+/* Links */
+a
+  color: inherit
+  text-decoration: none
+
+  &:focus-visible
+    outline: 2px solid #007acc
+    outline-offset: 2px
+
+/* Typography consistency */
+p, h1, h2, h3, h4, h5, h6
+  overflow-wrap: break-word
+  font-weight: normal
+
+/* Lists */
+ol, ul
+  list-style: none
+

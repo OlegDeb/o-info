@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивная панель</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Логотип -->
+            <div class="navbar-logo">
+                <a href="#">
+                    <img src="logo.svg" alt="Логотип">
+                </a>
+            </div>
+
+            <!-- Основное меню для десктопа -->
+            <div class="navbar-menu">
+                <a href="#" class="menu-item">Главная</a>
+                <a href="#" class="menu-item">О нас</a>
+                <a href="#" class="menu-item">Услуги</a>
+                <a href="#" class="menu-item">Контакты</a>
+            </div>
+
+            <!-- Блок иконок и пользователя -->
+            <div class="navbar-user">
+                <div class="user-icons">
+                    <button class="icon-btn notification-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.93 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn messages-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="user-dropdown">
+                    <button class="user-trigger">
+                        <div class="user-avatar">
+                            <img src="avatar.jpg" alt="Аватар">
+                        </div>
+                        <span class="user-name">Иван Иванов</span>
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            Профиль
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                            </svg>
+                            Выйти
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопка бургер меню для мобильной версии -->
+            <button class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="#" class="mobile-menu-item">Главная</a>
+                <a href="#" class="mobile-menu-item">О нас</a>
+                <a href="#" class="mobile-menu-item">Услуги</a>
+                <a href="#" class="mobile-menu-item">Контакты</a>
+                
+                <div class="mobile-user-section">
+                    <div class="mobile-user-info">
+                        <div class="mobile-user-avatar">
+                            <img src="avatar.jpg" alt="Аватар">
+                        </div>
+                        <span class="mobile-user-name">Иван Иванов</span>
+                    </div>
+                    <div class="mobile-user-links">
+                        <a href="#" class="mobile-user-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            Профиль
+                        </a>
+                        <a href="#" class="mobile-user-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                            </svg>
+                            Выйти
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
