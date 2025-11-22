@@ -11,6 +11,9 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ company.name }}</h5>
+                    {% if company.subcategory %}
+                    <p class="card-text"><strong>Категория:</strong> {{ company.subcategory.category }} - {{ company.subcategory }}</p>
+                    {% endif %}
                     <p class="card-text">{{ company.description }}</p>
                     <p class="card-text"><strong>Адрес:</strong> {{ company.address }}</p>
                     {% if company.website %}
