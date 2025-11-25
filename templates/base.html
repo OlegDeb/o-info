@@ -23,9 +23,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Центральное меню -->
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
+            <!-- Все меню в одном блоке -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Центральное меню навигации -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Главная</a>
                     </li>
@@ -39,33 +40,18 @@
                         <a class="nav-link" href="#">Контакты</a>
                     </li>
                 </ul>
-            </div>
 
-            <!-- Иконки и кнопки справа -->
-            <div class="d-flex align-items-center">
-                <!-- Иконка уведомлений -->
-                <button class="btn btn-link position-relative me-2" type="button">
-                    <i class="bi bi-bell-fill text-primary" style="font-size: 1.2rem;"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        3
-                    </span>
-                </button>
-
-                <!-- Иконка сообщений -->
-                <button class="btn btn-link position-relative me-2" type="button">
-                    <i class="bi bi-envelope-fill text-primary" style="font-size: 1.2rem;"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                        5
-                    </span>
-                </button>
-
-                <!-- Иконки входа и регистрации -->
-                <button class="btn btn-link text-primary me-2" type="button" title="Войти">
-                    <i class="bi bi-box-arrow-in-right" style="font-size: 1.2rem;"></i>
-                </button>
-                <button class="btn btn-link text-primary" type="button" title="Регистрация">
-                    <i class="bi bi-person-add" style="font-size: 1.2rem;"></i>
-                </button>
+                <!-- Блок с иконками справа (десктоп) / внизу (мобильные) -->
+                <div class="d-flex align-items-center flex-column flex-lg-row">
+                    <a class="nav-link d-flex align-items-center mb-2 mb-lg-0 me-lg-3" href="" aria-label="Вход">
+                        <i class="bi bi-box-arrow-in-right fs-5 me-1"></i>
+                        <span class="d-none d-lg-inline">Вход</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center nav-link-register-spacing" href="" aria-label="Регистрация">
+                        <i class="bi bi-person-plus fs-5 me-1"></i>
+                        <span class="d-none d-lg-inline">Регистрация</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>

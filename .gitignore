@@ -36,3 +36,7 @@ cmd.txt
 # Static files (если собираетесь их игнорировать)
 /staticfiles/
 /media/
+
+# Logs and work data
+company/logs/
+company/work_data/

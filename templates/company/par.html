@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block title %}Добавление компаний | O-INFO{% endblock %}
+{% block content %}
+<div class="container my-4">
+    <!-- Заголовок страницы -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="mb-0">Добавление компаний в базу</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Добавление компаний</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="row">
+        <!-- Левая колонка - Категории -->
+        <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Категории</h5>
+                </div>
+                <div class="card-body" style="max-height: 600px; overflow-y: auto;">
+                    <div class="accordion" id="categoryAccordion">
+                        {% for category, subcategories in category_hierarchy.items %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="categoryHeading{{ category.id }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#categoryCollapse{{ category.id }}" aria-expanded="false" aria-controls="categoryCollapse{{ category.id }}">
+                                        {{ category.name }}
+                                    </button>
+                                </h2>
+                                <div id="categoryCollapse{{ category.id }}" class="accordion-collapse collapse" aria-labelledby="categoryHeading{{ category.id }}" data-bs-parent="#categoryAccordion">
+                                    <div class="accordion-body">
+                                        {% if subcategories %}
+                                            {% for subcategory in subcategories %}
+                                                <div class="small mb-1">
+                                                    {{ subcategory.name }} <span class="text-muted">({{ subcategory.id }})</span>
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            <div class="text-muted small">Нет подкатегорий</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="text-muted">Нет категорий</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Центральная колонка - Форма -->
+        <div class="col-12 col-md-8 col-lg-6 mb-4 mb-lg-0">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{% url 'form_company' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="cat" class="form-label">Файл данных</label>
+                            <select name="cat" id="cat" class="form-select">
+                                {% for cat in cat_data %}
+                                <option value="{{ cat }}">{{ cat }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_subcat" class="form-label">ID подкатегории</label>
+                            <input type="number" class="form-control" name="id_subcat" id="id_subcat">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_city" class="form-label">ID города</label>
+                            <input type="number" class="form-control" name="id_city" id="id_city">
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Добавить компании</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка - Города -->
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Города</h5>
+                </div>
+                <div class="card-body" style="max-height: 600px; overflow-y: auto;">
+                    <div class="accordion" id="cityAccordion">
+                        {% for region_name, cities in city_hierarchy.items %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="regionHeading{{ forloop.counter }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#regionCollapse{{ forloop.counter }}" aria-expanded="false" aria-controls="regionCollapse{{ forloop.counter }}">
+                                        {{ region_name }}
+                                    </button>
+                                </h2>
+                                <div id="regionCollapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="regionHeading{{ forloop.counter }}" data-bs-parent="#cityAccordion">
+                                    <div class="accordion-body">
+                                        {% for city in cities %}
+                                            <div class="small mb-1">
+                                                {{ city.name }} <span class="text-muted">({{ city.id }})</span>
+                                            </div>
+                                        {% empty %}
+                                            <div class="text-muted small">Нет городов</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="text-muted">Нет регионов</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
